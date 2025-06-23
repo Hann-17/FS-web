@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top Up Free Fire</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background-color: #f2f2f2;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    select, input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #ff5e00;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #cc4b00;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Top Up Free Fire</h2>
+    <label for="userId">ID Pengguna</label>
+    <input type="text" id="userId" placeholder="Contoh: 123456789" />
+
+    <label for="nominal">Pilih Nominal</label>
+    <select id="nominal">
+      <option value="1000">5 Diamonds - Rp1.000</option>
+      <option value="3000">12 Diamonds - Rp3.000</option>
+      <option value="5000">50 Diamonds - Rp5.000</option>
+      <option value="10000">70 Diamonds - Rp10.000</option>
+      <option value="20000">140 Diamonds - Rp20.000</option>
+    </select>
+
+    <button onclick="checkout()">Checkout via WhatsApp</button>
+  </div>
+
+  <script>
+    function checkout() {
+      const userId = document.getElementById('userId').value;
+      const nominal = document.getElementById('nominal').value;
+      const nominalText = document.getElementById('nominal').selectedOptions[0].text;
+      const gameName = "Free Fire";
+      const whatsappNumber = "6281234567890"; // Ganti nomor admin kamu
+
+      if (!userId) {
+        alert("Masukkan ID pengguna terlebih dahulu.");
+        return;
+      }
+
+      const message = `Halo Admin, saya ingin top up ${gameName}.\nID: ${userId}\nNominal: ${nominalText}`;
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+</html>

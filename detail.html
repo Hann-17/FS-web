@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .detail {
+      margin: 10px 0;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Checkout</h2>
+    <div class="detail" id="gameDetail"></div>
+    <div class="detail" id="uidDetail"></div>
+    <div class="detail" id="amountDetail"></div>
+    <button onclick="processPayment()">Bayar Sekarang</button>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const game = params.get('game');
+    const uid = params.get('uid');
+    const amount = params.get('amount');
+
+    document.getElementById('gameDetail').textContent = `Game: ${game.toUpperCase()}`;
+    document.getElementById('uidDetail').textContent = `User ID: ${uid}`;
+    document.getElementById('amountDetail').textContent = `Jumlah: Rp${parseInt(amount).toLocaleString()}`;
+
+    function processPayment() {
+      alert(`Memproses pembayaran untuk ${uid} sebesar Rp${amount}`);
+      // TODO: Integrasi dengan API Digiflazz di sini
+    }
+  </script>
+  <script>
+  function checkout() {
+    const userId = document.getElementById('userId').value;
+    const nominal = document.getElementById('nominal').value;
+    const nominalText = document.getElementById('nominal').selectedOptions[0].text;
+    const gameName = "Mobile Legends"; // Sesuaikan jika untuk game lain
+
+    if (!userId) {
+      alert("Masukkan ID terlebih dahulu!");
+      return;
+    }
+
+    const message = `Halo Admin, saya ingin top up ${gameName}.\nID: ${userId}\nNominal: ${nominalText}`;
+    const whatsappNumber = "628998064180"; // Ganti dengan nomor admin kamu
+
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
+</script>
+
+</body>
+</html>

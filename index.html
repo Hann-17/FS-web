@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FS sell - Top Up Game</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background: #503c3c;
+    }
+
+    header {
+      background: #f8f8f8;
+      color: rgb(42, 16, 102);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .game-card {
+      background: rgb(20, 19, 19);
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+      text-align: center;
+      padding: 10px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .game-card:hover {
+      transform: scale(1.05);
+    }
+
+    .game-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .game-name {
+      font-weight: bold;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>FS web</h1>
+    <p>Top Up Game Termurah & Terpercaya</p>
+  </header>
+
+  <div class="container">
+    <a href="detail-ml.html" class="game-card">
+      <img src="assets/mlbb.png" alt="MLBB" />
+      <div class="game-name">Mobile Legends</div>
+    </a>
+    <a href="detail-ff.html" class="game-card">
+      <img src="assets/freefire.png" alt="Free Fire" />
+      <div class="game-name">Free Fire</div>
+    </a>
+    <a href="detail-domino.html" class="game-card">
+      <img src="assets/domino.png" alt="Higgs Domino" />
+      <div class="game-name">Higgs Domino</div>
+    </a>
+    <a href="detail-pubg.html" class="game-card">
+      <img src="assets/pubg.png" alt="PUBG" />
+      <div class="game-name">PUBG Mobile</div>
+    </a>
+    <!-- Tambah game lain di sini -->
+  </div>
+
+</body>
+</html>
